@@ -65,7 +65,7 @@ public class UserController {
 	}
 	
 	// Updates the user's instance in the database table User
-	// The object that needs to be passed throught api is:
+	// It needs to pass a CPF and an object throught api, and the object needs to be as:
 	// { 
 	//   cpf: 'only cpf number'
 	//   name: 'name of the user'
@@ -79,22 +79,26 @@ public class UserController {
 	//   email: 'user's e-mail'
 	//   password: 'user's password'
 	// }
-	@PutMapping(path="/update")
-	public @ResponseBody User updateUser(@RequestBody User newUser) {
-		User user = repository.findById(newUser.getCpf()).orElse(newUser);
+	@PutMapping(path="/update/{cpf}")
+	public @ResponseBody User updateUser(@PathVariable("cpf") String cpf, @RequestBody User newUser) {
+		User user = repository.findById(cpf).orElse(null);
 		
-		user.setAddress(newUser.getAddress());
-		user.setBirthday(newUser.getBirthday());
-		user.setCity(newUser.getCity());
-		user.setCountry(newUser.getCountry());
-		user.setEmail(newUser.getEmail());
-		user.setName(newUser.getName());
-		user.setNbr(newUser.getNbr());
-		user.setPassword(newUser.getPassword());
-		user.setSex(newUser.getSex());
-		user.setState(newUser.getState());
+		if(user != null) {
+			user.setAddress(newUser.getAddress());
+			user.setBirthday(newUser.getBirthday());
+			user.setCity(newUser.getCity());
+			user.setCountry(newUser.getCountry());
+			user.setEmail(newUser.getEmail());
+			user.setName(newUser.getName());
+			user.setNbr(newUser.getNbr());
+			user.setPassword(newUser.getPassword());
+			user.setSex(newUser.getSex());
+			user.setState(newUser.getState());
+			
+			return repository.save(user);
+		}
 		
-		return repository.save(user);
+		return null;
 	}
 	
 	// Deletes the user in the database table User throught its cpf

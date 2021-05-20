@@ -59,17 +59,19 @@ public class ProductController {
 	//   rating:  It quantifies the grade that the users give to the product
 	//   price: It is a number with float point that quantifies the unit price of the product.
 	// }
-	@PutMapping(path="/update")
-	public @ResponseBody Product updateProduct(@RequestBody Product product) {
-		Product updatedProduct = repository.findById(product.getNbr()).orElse(product);
-		
-		updatedProduct.setImage(product.getImage());
-		updatedProduct.setPrice(product.getPrice());
-		updatedProduct.setQuantity(product.getQuantity());
-		updatedProduct.setRating(product.getRating());
-		updatedProduct.setTitle(product.getTitle());
-		
-		return repository.save(updatedProduct);
+	@PutMapping(path="/update/{nbr}")
+	public @ResponseBody Product updateProduct(@PathVariable("nbr") int nbr, @RequestBody Product newProduct) {
+		Product product = repository.findById(nbr).orElse(null);
+		if(product != null) {
+			product.setImage(newProduct.getImage());
+			product.setPrice(newProduct.getPrice());
+			product.setQuantity(newProduct.getQuantity());
+			product.setRating(newProduct.getRating());
+			product.setTitle(newProduct.getTitle());
+			
+			return repository.save(product);
+		}
+		else return null;
 	}
 	
 	// Deletes the product in the database table Product throught its nbr
