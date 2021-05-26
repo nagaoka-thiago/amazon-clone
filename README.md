@@ -42,7 +42,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Show All Users**
 ----
-  Returns a list of json data about all users registered on database.
+  Returns a list of JSON data from all users registered on database.
 
 * **URL**
 
@@ -51,8 +51,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 * **Method:**
 
   `GET`
-  
-*  
+
 * **Success Response:**
 
   * **Code:** 200 <br />
@@ -77,7 +76,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Show User**
 ----
-  Returns json data about a single user registered on database.
+  Returns JSON data of a single user registered on database.
 
 * **URL**
 
@@ -120,7 +119,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Login User**
 ----
-  Returns json data about a the user logged in.
+  Returns JSON data of the user logged in.
 
 * **URL**
 
@@ -144,7 +143,7 @@ For instance, if you would like to show all users, your url will be: https://myo
     **Content:** `{"cpf":"12345678912","name":"Test 1","birthday":"1970-01-01T04:43:42.000+00:00","sex":"M","address":"Address 1","nbr":78,"city":"Curitiba","state":"Paraná","country":"Brasil","email":"test1@email.com","password":"1234"}`
  
 * **Error Response:**
-  * **Reason:** E-mail or password informed are not matched in database. <br />
+  * **Reason:** E-mail and password informed are not matched in database. <br />
       **Content:** `{}`
 
   * **Code:** 401 UNAUTHORIZED <br />
@@ -165,7 +164,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Add User**
 ----
-  Returns json data about the user registered in database.
+  Adds user's JSON data to database.
 
 * **URL**
 
@@ -196,13 +195,10 @@ For instance, if you would like to show all users, your url will be: https://myo
   `state: [user's state]`
 
   `country: [user's country]`
+
   `email: [user's e-mail]`
 
   `password: [user's password]`
- 
-  `email=[string]`
-
-  `password=[string]`
 
 * **Success Response:**
 
@@ -240,7 +236,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Update User**
 ----
-  Returns json data about the user updated in database.
+  Updates user information from JSON data to database.
 
 * **URL**
 
@@ -277,13 +273,10 @@ For instance, if you would like to show all users, your url will be: https://myo
   `state: [user's state]`
 
   `country: [user's country]`
+
   `email: [user's e-mail]`
 
   `password: [user's password]`
- 
-  `email=[string]`
-
-  `password=[string]`
 
 * **Success Response:**
 
@@ -323,7 +316,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Delete User**
 ----
-  Returns json data about a single user deleted in database.
+  Deletes a single user from database.
 
 * **URL**
 
@@ -366,7 +359,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Show All Products**
 ----
-  Returns a list of json data about all products registered on database.
+  Returns a list of JSON data from all products registered on database.
 
 * **URL**
 
@@ -401,7 +394,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Show Product**
 ----
-  Returns a json data about a product registered on database.
+  Returns a JSON data from a product registered on database.
 
 * **URL**
 
@@ -443,7 +436,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Add Product**
 ----
-  Adds product object from json data to database.
+  Adds product object from JSON data to database.
 
 * **URL**
 
@@ -497,7 +490,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Update product**
 ----
-  Updates product registration from database.
+  Updates product information from JSON data to database.
 
 * **URL**
 
@@ -605,7 +598,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Show Cart Items**
 ----
-  Returns a list of json data about cart items registered on database from a single user.
+  Returns a list of JSON data from cart items registered on database from a single user.
 
 * **URL**
 
@@ -647,7 +640,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Add Cart Item**
 ----
-  Adds cart item object from json data to database.
+  Adds cart item object from JSON data to database.
 
 * **URL**
 
@@ -692,7 +685,7 @@ For instance, if you would like to show all users, your url will be: https://myo
 
 **Update cart item**
 ----
-  Updates cart item registration from database.
+  Updates cart item information from JSON data to database.
 
 * **URL**
 

@@ -109,7 +109,8 @@ public class UserController {
 	@DeleteMapping(path="/delete/{cpf}")
 	public @ResponseBody User deleteUser(@PathVariable("cpf") String cpf) {
 		User user = repository.findById(cpf).orElse(null);
-		repository.delete(user);
+		if(user != null)
+			repository.delete(user);
 		
 		return user;
 	}

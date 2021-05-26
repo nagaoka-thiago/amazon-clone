@@ -81,7 +81,9 @@ public class ProductController {
 	@DeleteMapping(path="/delete/{nbr}")
 	public @ResponseBody Product deleteProduct(@PathVariable("nbr") int nbr) {
 		Product product = repository.findById(nbr).orElse(null);
-		repository.delete(product);
+		if(product != null)
+			repository.delete(product);
+		
 		return product;
 	}
 }
